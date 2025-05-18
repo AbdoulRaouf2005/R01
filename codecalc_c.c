@@ -4,6 +4,90 @@
 
 //----Nos propres fonctions ---------
 
+void Fact()
+{
+
+    int N,f,i,Reponse;
+    do
+    {
+
+
+        //lecture du nombre N
+        printf("Entrer le nombre a factoriser : ");
+        scanf("%d",&N);
+        if(N<0)
+            //vérifie si le nombre n'est pas négatif
+            printf("\nLa factorielle n'est pas definie pour les nombres negatil");
+        else
+        {
+            if(N==0)
+                printf("\n  0! = 1  \n");
+            else
+            {
+                f=1;
+                //calcul du factorielle
+                for(i=1; i<=N; i++)
+                {
+                    f=f*i;
+                }
+                //affichage de la reponse
+                printf("\n  %d! = %d  \n",N,f);
+            }
+        }
+        printf("Tapez : \n");
+        printf("1.recommencer \n");
+        printf("0.Quittez \n");
+        scanf("%d",&Reponse);
+    }
+    while(Reponse == 1);
+}
+
+void calculator()
+{
+    float x,y;
+    char operateur;
+    int Reponse;
+    do
+    {
+        // Entrée du 1er nombre par l'utilisateur
+        printf("\nEntrez votre premier nombre : \n");
+        scanf("%f",&x);
+
+        // Choix de l'operateur
+        printf("Entrez l'operateur a utilise (+,-,*,/) : \n");
+        scanf("%s",&operateur);
+
+        // Entrée du 2éme nombre par l'utisateur
+        printf("Entrez votre deuxieme nombre : \n");
+        scanf("%f",&y);
+
+        // verification de quel operateur utilisé pour faire le calcul
+        if(operateur == '+')
+        {
+            printf("%.1f %c %.1f = %.1f \n",x,operateur,y,x+y);
+        }
+        if(operateur == '-')
+        {
+            printf("%.1f %c %.1f = %.1f \n",x,operateur,y,x-y);
+        }
+        if(operateur == '*')
+        {
+            printf("%.1f %c %.1f = %.1f \n",x,operateur,y,x*y);
+        }
+        if(operateur == '/')
+        {
+            printf("%.1f %c %.1f = %.1f \n",x,operateur,y,x/y);
+        }
+        //verification du choix de l'utilisateur pour continuer ou non
+        printf("Tapez : \n");
+        printf("1.recommencer \n");
+        printf("0.Quittez \n");
+        scanf("%d",&Reponse);
+    }
+    while(Reponse == 1); // boucle permettant de recommencer le calcul
+
+}
+
 int Nomb_premier(int n)
 {
     //teste des differents cas
@@ -77,7 +161,7 @@ int main()
         case 0:
             continue;
         case 1:
-
+            calculator();
             break;
         case 2:
             do
@@ -92,11 +176,11 @@ int main()
                 {
                     printf("le nombre %d n'est pas un nombre premier \n",nombre);
                 }
-                    printf("Tapez : \n");
-                    printf("1.Continuez\n");
-                    printf("0.Quittez \n");
-                    scanf("%d",&confirm);
-                }
+                printf("Tapez : \n");
+                printf("1.Continuez\n");
+                printf("0.Quittez \n");
+                scanf("%d",&confirm);
+            }
             while(confirm != 0);
 
             break;
@@ -139,9 +223,9 @@ int main()
             }
             while (choix != 0);
 
-
             break;
         case 4:
+            Fact();
 
             break;
         default:
